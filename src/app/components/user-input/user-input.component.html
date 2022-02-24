@@ -1,0 +1,9 @@
+<div class="user-input">
+
+    <form [formGroup]="userInput" (ngSubmit)="submitForm()" >
+        <input  placeholder="Latitude" formControlName="latitude">
+        <input  placeholder="Longitude" formControlName="longitude">
+        <button mat-flat-button color="primary">Submit</button>
+    </form>
+    
+</div>

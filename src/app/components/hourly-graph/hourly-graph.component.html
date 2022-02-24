@@ -1,0 +1,32 @@
+<div class="header">
+    <h1>Hourly graph</h1>
+</div>
+
+<div class="graph-container">
+   
+    
+    <mat-divider></mat-divider>
+    <div class="select">
+        <mat-label>Choose a day</mat-label>
+        <mat-select (selectionChange)="changeDay($event)">
+            <mat-option 
+                [value]="option.day" 
+                *ngFor="let option of hourlyTempList">
+                {{ option.day | date:'EEEEEE dd/MM'}}
+            </mat-option>
+        </mat-select>
+    </div>
+    <ngx-charts-bar-vertical 
+        (window:resize)="onResize($event)"
+        [view]="view"
+        [results]="list"
+        [xAxisLabel]="'Hours'"
+        [yAxisLabel]="'Temperature (C)'"
+        [legend]="false"
+        [showXAxisLabel]="true"
+        [showYAxisLabel]="true"
+        [xAxis]="true"
+        [yAxis]="true"
+        [gradient]="true">
+    </ngx-charts-bar-vertical>
+</div>
